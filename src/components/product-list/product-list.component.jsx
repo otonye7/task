@@ -7,18 +7,18 @@ const ProductList = (items) => {
     return (
         <ProductListContainer>
             <div className='container'>
-            <Card className=''>
+            <Card className='card'>
                 <div className='face'>
                     <h2>{face}</h2>
                 </div>
                 <div className='others'>
-                    <p>{size}</p>
-                    <p>{price}</p>
-                    <p>{date}</p>
+                    <p>SIZE: {size}</p>
+                    <p>PRICE: {price}</p>
+                    <p>DATE: {date}</p>
                 </div>
             </Card> 
-            <br />
             </div>
+            <br />
         </ProductListContainer>
     )
 }
