@@ -1,3 +1,4 @@
+import {centsConverter} from '../cents-converter/cents-converter.component';
 import { ProductListContainer } from './product-list.styles';
 import Card from '@material-ui/core/Card';
 
@@ -13,7 +14,7 @@ const ProductList = (items) => {
                 </div>
                 <div className='others'>
                     <p>SIZE: {size}</p>
-                    <p>PRICE: {price}</p>
+                    <p>PRICE: ${centsConverter(price)}</p>
                     <p>DATE: {date}</p>
                 </div>
             </Card> 
