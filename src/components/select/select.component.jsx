@@ -17,37 +17,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NativeSelects() {
+export default function NativeSelects({handleChange, sort}) {
+  
   const classes = useStyles();
-  const [state, setState] = React.useState({
-    age: '',
-    name: 'hai',
-  });
-
-  const handleChange = (event) => {
-    const name = event.target.name;
-    setState({
-      ...state,
-      [name]: event.target.value,
-    });
-  };
+  
 
   return (
     <SelectContainer>
       <FormControl className={classes.formControl}>
         <InputLabel htmlFor="age-native-helper">Sort</InputLabel>
         <NativeSelect
-          value={state.age}
+          value={sort}
           onChange={handleChange}
-          inputProps={{
-            name: 'age',
-            id: 'age-native-helper',
-          }}
         >
           <option aria-label="None" value="" />
-          <option value={10}>Price</option>
-          <option value={20}>Size</option>
-          <option value={30}>Id</option>
+          <option value={"price"}>Price</option>
+          <option value={"size"}>Size</option>
+          <option value={"id"}>Id</option>
         </NativeSelect>
         <FormHelperText>Sort by price or size or id</FormHelperText>
       </FormControl>

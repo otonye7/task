@@ -13,9 +13,11 @@ const Product = () => {
     const [ finished, setFinished] = useState(false)
     const [isLoading, setIsLoading] = useState(false);
 
+
+
     useEffect(() => {
         loadData()
-    }, [])
+    }, [sort])
 
       
     const handleScroll = event => {
@@ -36,9 +38,18 @@ const Product = () => {
         setIsLoading(false)
     }
 
+    console.log(sort)
+
+    const handleChange = (e) => {
+        setData([])
+        setPage(0)
+        setFinished(false)
+        setSort(e.target.value)
+    }
+
     return (
         <ProductsContainer>
-        <NativeSelects />
+        <NativeSelects handleChange={handleChange} sort={sort}/>
         <br />
         <div className='preview' onScroll={handleScroll} >
             {
