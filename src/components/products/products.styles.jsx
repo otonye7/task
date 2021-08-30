@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ProductsContainer = styled.div`
     width: 100%;
+    background-color: pink;
 
     .preview {
         width: 98%;

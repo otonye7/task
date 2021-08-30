@@ -1,3 +1,3 @@
 export const centsConverter = (price) => {
-    return price * 0.01
+    return parseFloat(Math.round(price) * 0.01).toFixed(2)
 }
