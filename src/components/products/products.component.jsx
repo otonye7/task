@@ -31,10 +31,11 @@ const Product = () => {
     const loadData = async () => {
         setIsLoading(true)
         const res = await axios.get(`http://localhost:3000/products?_page=${page + 1}&_limit=${limit}&_sort=${sort}`)
+        if (res.data.length) {
         setData(prev => [...prev, ...res.data])
         setPage(page + 1)
-        if (!datas.length) {
-            setFinished(true)
+        } else {
+           setFinished(true) 
         }
         setIsLoading(false)
     }
@@ -50,7 +51,6 @@ const Product = () => {
 
     return (
         <ProductsContainer>
-            {/* <Ad /> */}
             <br />
         <NativeSelects handleChange={handleChange} sort={sort}/>
         <br />
@@ -62,7 +62,7 @@ const Product = () => {
                 {(i + 1) % 20 === 0 && <Ad />}
                 </>
             ))}
-            {finished === true ? <h1>End of Catalogue</h1> : null} 
+            {finished && <h2>End of catalogue</h2>}
             {!isLoading ? null : <LoadingSign />}
         </div>
         <br />
